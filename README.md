@@ -75,3 +75,55 @@ Network- To find out what ports are open and listening:
 ```
 sudo netstat -tupln
 ```
+Create new file using VI editor:
+```
+vi test.file
+```
+Insert data press i and write content:
+```
+i
+```
+To save and quit from vi press esc and then :
+```
+:wq
+```
+Print "Hello World" message in terminal :
+```
+echo "Hello World"
+```
+Print std Output to some file :
+```
+echo "Hello World" 1> somefile.txt
+```
+Print std Output to some file but this override the existing contents :
+```
+echo "Hello World" > somefile.txt
+```
+Redirecting standart output and append data in existing file use ">>" :
+```
+echo "Hello World" >> somefile.txt
+```
+To Redirect standard error use 2> :
+```
+cat nonExistingFile.txt 2> somefile.txt
+```
+Redirect input using <, Here we are mailing error.txt to the user palak:
+```
+mail -s This is errror file" palak < error.txt
+```
+Use grep for searching patterns in files
+```
+cat somefile.txt | grep Thanks
+```
+Cut file using delimiter and find fields
+```
+cat somefile.txt | cut -d: f1
+```
+Sort the file contents in alphabatical orders, ignore the leading whitespace using b case-insesitive f
+```
+cat somefile.txt | sort -bf
+```
+Search somethig in directory
+```
+grep search_term ./*
+```
