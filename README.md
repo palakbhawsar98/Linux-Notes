@@ -127,3 +127,50 @@ Search somethig in directory
 ```
 grep search_term ./*
 ```
+Install software
+```
+sudo apt-get install software-name
+```
+Used for searching apt packages on a Ubuntu or Debian based systems
+```
+sudo apt-cache search software-name
+```
+Change file mode - Read-4, Write-2, Execute-1, no-permissiom-0
+```
+chmod 777 testfile.txt -
+```
+Change file mode automatically- /etc/login.defs - search UMASK
+```
+edit umask 022 --- owner none permissomiom taken, from group read execute permission taken
+```
+Find user details and user password
+```
+sudo -i
+tail /etc/passwd
+tail /etc/shadow
+```
+Add user and create set home directory
+```
+useradd -m -d /home/user1 -s /bin/bash user1
+```
+```
+cat /etc/shadow  user1:!:19275:0:99999:7:::
+```
+User can't login as password is not set (you can see the ! mark ) 
+
+Group details   
+```
+cat /etc/group
+```
+set password for user   
+```
+passwd user1 
+```
+Lock user 
+```
+usermod -L user1
+```
+Unlock user    
+```
+usermod -U user1
+```
