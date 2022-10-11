@@ -1,176 +1,73 @@
 # Linux
-### Linux Commands
 
-Find current working directory:
-```
-pwd
-```
-List things in directory:
-```
-ls
-```
-Change directory:
-```
-cd /Dir/Dir_name
-```
-Clear the terminal:
-```
-clear
-```
-List hidden files:
-```
-ls -a
-```
-Create new file in terminal:
-```
-touch file.txt
-```
-Read file content:
-```
-cat file.txt
-```
-Create Directory:
-```
-mkdir directory_name
-```
-Create nested Directory using -p flag:
-```
-mkdir -p dir3/dir2/dir1/directory_name
-```
-Move File:
-```
-mv file_name directory
-mv file.txt Downloads/files
-```
-Remove File:
-```
-rm file_name
-```
-Remove Directory:
-```
-rm directory_name
-```
-To find use of specific command:
-```
-man command   E.g. man rm
-```
-Remove directory and their contents recursively:
-```
-rm -r downloads/
-```
-Copy file:
-```
-cp source destination
-```
-use w/who to find uptime, how many users has logged in:
-```
-w
-who
-```
-To find and monitor running processes:
-```
-top
-```
-Network- To find out what ports are open and listening:
-```
-sudo netstat -tupln
-```
-Create new file using VI editor:
-```
-vi test.file
-```
-Insert data press i and write content:
-```
-i
-```
-To save and quit from vi press esc and then :
-```
-:wq
-```
-Print "Hello World" message in terminal :
-```
-echo "Hello World"
-```
-Print std Output to some file :
-```
-echo "Hello World" 1> somefile.txt
-```
-Print std Output to some file but this override the existing contents :
-```
-echo "Hello World" > somefile.txt
-```
-Redirecting standart output and append data in existing file use ">>" :
-```
-echo "Hello World" >> somefile.txt
-```
-To Redirect standard error use 2> :
-```
-cat nonExistingFile.txt 2> somefile.txt
-```
-Redirect input using <, Here we are mailing error.txt to the user palak:
-```
-mail -s This is errror file" palak < error.txt
-```
-Use grep for searching patterns in files
-```
-cat somefile.txt | grep Thanks
-```
-Cut file using delimiter and find fields
-```
-cat somefile.txt | cut -d: f1
-```
-Sort the file contents in alphabatical orders, ignore the leading whitespace using b case-insesitive f
-```
-cat somefile.txt | sort -bf
-```
-Search somethig in directory
-```
-grep search_term ./*
-```
-Install software
-```
-sudo apt-get install software-name
-```
-Used for searching apt packages on a Ubuntu or Debian based systems
-```
-sudo apt-cache search software-name
-```
-Change file mode - Read-4, Write-2, Execute-1, no-permissiom-0
-```
-chmod 777 testfile.txt -
-```
-Change file mode automatically- /etc/login.defs - search UMASK
-```
-edit umask 022 --- owner none permissomiom taken, from group read execute permission taken
-```
-Find user details and user password
-```
-sudo -i
-tail /etc/passwd
-tail /etc/shadow
-```
-Add user and create set home directory
-```
-useradd -m -d /home/user1 -s /bin/bash user1
-```
-```
-cat /etc/shadow  user1:!:19275:0:99999:7:::
-```
-User can't login as password is not set (you can see the ! mark ) 
+## Linux Filesystem
 
-Group details   
+### *Use "man heir" to find more insights on linux files system*
+
+This directory contains all the configuration file of your application.
+if something goes wrong you should be looking in this directory.
 ```
-cat /etc/group
+ls /etc/ 
 ```
-set password for user   
+This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
 ```
-passwd user1 
+ls /bin
 ```
-Lock user 
+This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
 ```
-usermod -L user1
+ls /sbin
 ```
-Unlock user    
+This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
 ```
-usermod -U user1
+ls /lib
 ```
+This directory's main purpose is to store optional application software packages. In many cases this is software from outside the distribution repository. Add-on applications from individual vendors should be installed in ‘/opt’. In some systems ‘/opt’ is empty as they may not have any add-on application.
+
+```
+ls /opt
+```
+This directory in Linux based systems contains necessary files that are temporarily required by the system as well as other software and applications running on the machine.
+
+For example, when you are writing a document, all the content inside that document is saved as a temporary file inside the /tmp directory. After you have saved it, it gets stored in your preferred location, and the temporary file gets removed once you exit the document.
+
+```
+ls /tmp
+```
+This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
+```
+ls /boot
+```
+This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
+*Device files are abstractions of standard devices that applications interact with via I/O system calls.*
+```
+ls /dev
+```
+The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
+```
+ls /media
+```
+
+This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
+```
+ls /mnt
+```
+This directory is for each processes running on our system. It also contains some configuration files
+```
+ls /proc
+```
+This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+```
+ls /var
+```
+
+### There are 7 filetypes in Linix?
+
+- Normal files
+- Directories
+- References to files
+- Character device files
+- Block device files
+- Symbolic links
+- Local domain sockets/named pipes)
+
+
