@@ -175,3 +175,32 @@ crontab -l
 Unlock user    
 Edit crontab
 ```
+To persist aliases, add alias in -
+```
+vi .bashrc 
+alias ls -la = l
+```
+List open file
+```
+lsof
+```
+Find who opens this file at the moment
+```
+lsof /var/log/nginx/access.log
+```
+Find all the files open up by the process
+```
+ps aux | grep ngins
+```
+What file user has opened right now
+```
+lsof -u user_name
+```
+Which process is listening on what port
+```
+lsof -i :port_name
+```
+Which process is listening to tcp protocol
+```
+lsof -i tcp
+```
