@@ -98,6 +98,19 @@ ls /var
 - Symbolic links
 - Local domain sockets/named pipes)
 
+Find more info about files in the directory using below command
+```
+ls -l
+```
+Sort files based on timestamp
+```
+ls -lt
+```
+Sort files based on timestamp in decending order
+```
+ls -lt
+```
+
 ## Monitoring in Linux
 
 Configured in /etc/monitrc
@@ -144,13 +157,17 @@ Find current working directory:
 ```
 pwd
 ```
+Find currently logged-in user:
+```
+whoami
+```
 List things in directory:
 ```
 ls
 ```
 Change directory:
 ```
-cd /Dir/Dir_name
+cd /Dir_name
 ```
 Clear the terminal:
 ```
@@ -201,6 +218,10 @@ Copy file:
 ```
 cp source destination
 ```
+Switch to root user:
+```
+sudo -i
+```
 use w/who to find uptime, how many users has logged in:
 ```
 w
@@ -218,7 +239,7 @@ Create new file using VI editor:
 ```
 vi test.file
 ```
-Insert data press i and write content:
+For inserting data press i and write content:
 ```
 i
 ```
@@ -250,7 +271,8 @@ Redirect input using <, Here we are mailing error.txt to the user palak:
 ```
 mail -s This is errror file" palak < error.txt
 ```
-Use grep for searching patterns in files
+Use 
+for searching patterns in files
 ```
 cat somefile.txt | grep Thanks
 ```
@@ -282,6 +304,14 @@ Change file mode automatically- /etc/login.defs - search UMASK
 ```
 edit umask 022 --- owner none permissomiom taken, from group read execute permission taken
 ```
+Show first 10 lines of the file
+```
+head somefile.txt
+```
+Show last 10 lines of the file
+```
+tail somefile.txt
+```
 Find user details and user password
 ```
 sudo -i
@@ -299,7 +329,6 @@ Find which kernel version a system is currently running
 ```
 uname -a
 ```
-
 Find system's current IP address
 ```
 ifconfig
@@ -309,18 +338,36 @@ Check for free disk space
 ```
 df -ah
 ```
-
 Check for openports on linux machine
 ```
 netstat
 netstat -tulpn
 ```
-
 Check CPU usage for a process 
 ```
 ps aux | grep nginx
 top
 htop
+```
+#### Permissions
+
+- Read (r) - 4
+- Write (w) - 2
+- Execute (x) - 1
+
+drwxr-xr-x
+
+rwx - Root user permission
+r-x - Group permission
+r-x - perimission to others
+
+Check the permission of the directory
+```
+ls -ld
+```
+Assign all permissiom to root users in this directory
+```
+chmod 700 /opt/directory
 ```
 
 The crontab is a list of commands that you want to run on a regular schedule, and also the name of the command used to manage that list.
