@@ -1,5 +1,117 @@
 # Linux
 
+## Linux Filesystem
+
+### *Use "man heir" to find more insights on linux files system*
+
+This directory contains all the configuration file of your application.
+if something goes wrong you should be looking in this directory.
+```
+ls /etc/ 
+```
+This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
+```
+ls /bin
+```
+This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
+```
+ls /sbin
+```
+This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
+```
+ls /lib
+```
+This directory's main purpose is to store optional application software packages. In many cases this is software from outside the distribution repository. Add-on applications from individual vendors should be installed in ‘/opt’. In some systems ‘/opt’ is empty as they may not have any add-on application.
+
+```
+ls /opt
+```
+This directory in Linux based systems contains necessary files that are temporarily required by the system as well as other software and applications running on the machine.
+
+For example, when you are writing a document, all the content inside that document is saved as a temporary file inside the /tmp directory. After you have saved it, it gets stored in your preferred location, and the temporary file gets removed once you exit the document.
+
+```
+ls /tmp
+```
+This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
+```
+ls /boot
+```
+This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
+*Device files are abstractions of standard devices that applications interact with via I/O system calls.*
+```
+ls /dev
+```
+The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
+```
+ls /media
+```
+
+This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
+```
+ls /mnt
+```
+This directory is for each processes running on our system. It also contains some configuration files
+```
+ls /proc
+```
+This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+```
+ls /var
+```
+
+### There are 7 filetypes in Linix?
+
+- Normal files
+- Directories
+- References to files
+- Character device files
+- Block device files
+- Symbolic links
+- Local domain sockets/named pipes)
+
+## Monitoring in Linux
+
+Configured in /etc/monitrc
+
+#### Install Monit
+- apt-get update
+- apt-get install monit
+- systemctl enable monit
+- systemctl start monit
+
+Edit /etc/monit/monitrc
+
+#### systemd
+
+systemd is monitoring init system used to manage services
+```
+systemctl <command> <unitname>
+```
+  
+  - ## enable
+  Make sure this usnit always starts at boot.
+  - ## disable
+  Opposite of enable
+  - ## start
+  Start this unit now(will not automatically starts at next boot)
+  - ## stop
+  Stop a running unit(will not prevent starting at boot, if enabled)
+  - ## reload
+  Reread the program configuration files
+  - ## restart
+  Kill the process and start again, rereading the configuration files
+  - ## status
+  Check status of unit, show last few lines of log output
+  
+  ### Log mangaement commands
+  
+  - Journalctl
+  - journactl -u <unit>
+  - journactl --since "2 min ago"
+
+## Linux Commands
+
 Find current working directory:
 ```
 pwd
@@ -158,6 +270,31 @@ cat /etc/shadow  user1:!:19275:0:99999:7:::
 User can't login as password is not set (you can see the ! mark ) 
 The crontab is a list of commands that you want to run on a regular schedule, and also the name of the command used to manage that list.
 
+# Crontab
+
+The crontab is a list of commands that you want to run on a regular schedule, and also the name of the command used to manage that list.
+
+List crontab   
+```
+crontab -l
+```
+Edit crontab
+```
+crontab -e
+```
+
+MIN HOUR DOM MOY DOW     COMMAND
+15  10   *   *   (3-5)   ech0 "$(date): checkin in." >>  /var/log/chcking
+
+sudo less /var/spool/cron/crontab/user
+
+ls /etc/cron.d/
+
+crontab -e -u user
+
+sudo vi /etc/crotab === system wide crontab
+
+
 Group details   
 ```
 cat /etc/group
@@ -204,3 +341,49 @@ Which process is listening to tcp protocol
 ```
 lsof -i tcp
 ```
+
+## Archiving and Compression in linux
+
+## Archieve file
+```
+tar -zcvf doc.tar.gz Directory/
+```
+
+#### Archiving and Compressing with tar
+
+- 'f' will specify the filename for the directory (docs.tar.gz in this case)
+
+- 'v' is verbose, means that we will get one line of output for each file we are compressing
+
+- 'c' is for create, we are creating a new archive
+
+- 'z' is for zipping (we are using the g zip program), used to compress archive as well as archiving it
+
+## Unarchieve file
+```
+tar -zxf doc.tar.gz
+```
+#### Unzips a tar directory HERE (in this location) 
+
+- 'z' shows that it is g zipped
+
+- 'x' means to extract it 
+
+- 'f' defines the archive filename (in this case: docs.tar.gz)
+
+       Linux Lifecycle & Processes
+
+A process in a computer operating system is an executable program in action. The executable program has machine instructions necessary to carry out a specific task. A corresponding process is born when a program is executed for carrying out a task. A programmer writes a software program using a high-level programming language such as C. This is also called ‘code’ and the programmer compiles it to create an executable program. The compilation process converts the code into a set of machine-level instructions, and it becomes intelligible to the operating system. The compiler for Linux systems is GCC or Gnu C Compiler.
+
+The executable program remains a passive entity, until it is instructed to run or execute by the user. Then it creates a new entity called a process, which is visible by the command ‘ps’. The process is associated with three identifiers – the Process ID or PID, the Parent Process ID or PPID and the Group ID or GID.
+
+In a Linux system, the first process to start is the ‘init’ and it has a PID of 1. All subsequent processes are init’s children, grandchildren and so on. For active process in a Linux system, the command ‘pstree’ will bring up the entire hierarchy, while ‘top’ will show the dynamic view of processes. The Linux kernel uses a scheduler and it controls the execution sequence of all the processes. Linux processes can have one of four states at any given time: running, waiting or sleeping, stopped and zombie.
+
+A process achieves a running state when it is actually executing (running) or waiting for execution in the queue of the scheduler, which means it is ready to run or execute. For this reason, the running state is also known as runnable and is represented by R.
+
+A process is in a waiting or sleeping state if it must wait for an event to occur or some resource-specific operation needs to complete before the process can continue to run. Therefore, depending on the circumstances, the waiting state is further subcategorized into an interruptible or S state and an uninterruptible or D state.
+
+If the scheduler sends a stop signal to a process, the process goes into a stopped state. This might happen, for example, when the process is being debugged or analyzed and this state is represented by T.
+
+When a process has completed its execution, but is waiting to retrieve its exit state, the process is said to be in a zombie state, designated by Z. Once it crosses the zombie state or retrieves its exit status, the process dies or ceases to exist.
+
