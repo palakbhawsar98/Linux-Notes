@@ -2,63 +2,72 @@
 
 ## Linux Filesystem
 
-### *Use "man heir" to find more insights on linux files system*
+*Use "man heir" to find more insights on linux files system*
 
-This directory contains all the configuration file of your application.
-if something goes wrong you should be looking in this directory.
 ```
 ls /etc/ 
 ```
-This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
+This directory contains all the configuration file of your application.
+if something goes wrong you should be looking in this directory.
+
 ```
 ls /bin
 ```
-This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
+This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
+
 ```
 ls /sbin
 ```
-This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
+This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
+
 ```
 ls /lib
+```
+This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
+
+```
+ls /opt
 ```
 This directory's main purpose is to store optional application software packages. In many cases this is software from outside the distribution repository. Add-on applications from individual vendors should be installed in ‘/opt’. In some systems ‘/opt’ is empty as they may not have any add-on application.
 
 ```
-ls /opt
+ls /tmp
 ```
 This directory in Linux based systems contains necessary files that are temporarily required by the system as well as other software and applications running on the machine.
 
 For example, when you are writing a document, all the content inside that document is saved as a temporary file inside the /tmp directory. After you have saved it, it gets stored in your preferred location, and the temporary file gets removed once you exit the document.
 
 ```
-ls /tmp
-```
-This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
-```
 ls /boot
 ```
-This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
-*Device files are abstractions of standard devices that applications interact with via I/O system calls.*
+This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
+
 ```
 ls /dev
 ```
-The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
+This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
+*Device files are abstractions of standard devices that applications interact with via I/O system calls.*
+
 ```
 ls /media
 ```
+The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
 
-This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
 ```
 ls /mnt
 ```
-This directory is for each processes running on our system. It also contains some configuration files
+This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
+
 ```
 ls /proc
 ```
-This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+This directory is for each processes running on our system. It also contains some configuration files
+
 ```
 ls /var
 ```
+This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+
 
 ### There are 7 filetypes in Linix?
 
@@ -263,11 +272,38 @@ tail /etc/shadow
 Add user and create set home directory
 ```
 useradd -m -d /home/user1 -s /bin/bash user1
-```
-```
 cat /etc/shadow  user1:!:19275:0:99999:7:::
 ```
 User can't login as password is not set (you can see the ! mark ) 
+
+Find which kernel version a system is currently running
+```
+uname -a
+```
+
+Find system's current IP address
+```
+ifconfig
+ip addr show
+```
+Check for free disk space
+```
+df -ah
+```
+
+Check for openports on linux machine
+```
+netstat
+netstat -tulpn
+```
+
+Check CPU usage for a process 
+```
+ps aux | grep nginx
+top
+htop
+```
+
 The crontab is a list of commands that you want to run on a regular schedule, and also the name of the command used to manage that list.
 
 # Crontab
@@ -371,19 +407,31 @@ tar -zxf doc.tar.gz
 
 - 'f' defines the archive filename (in this case: docs.tar.gz)
 
-       Linux Lifecycle & Processes
+       ### Linux Lifecycle & Processes
 
 A process in a computer operating system is an executable program in action. The executable program has machine instructions necessary to carry out a specific task. A corresponding process is born when a program is executed for carrying out a task. A programmer writes a software program using a high-level programming language such as C. This is also called ‘code’ and the programmer compiles it to create an executable program. The compilation process converts the code into a set of machine-level instructions, and it becomes intelligible to the operating system. The compiler for Linux systems is GCC or Gnu C Compiler.
 
+--------------------------------------------------------------------------
+
 The executable program remains a passive entity, until it is instructed to run or execute by the user. Then it creates a new entity called a process, which is visible by the command ‘ps’. The process is associated with three identifiers – the Process ID or PID, the Parent Process ID or PPID and the Group ID or GID.
+
+--------------------------------------------------------------------------
 
 In a Linux system, the first process to start is the ‘init’ and it has a PID of 1. All subsequent processes are init’s children, grandchildren and so on. For active process in a Linux system, the command ‘pstree’ will bring up the entire hierarchy, while ‘top’ will show the dynamic view of processes. The Linux kernel uses a scheduler and it controls the execution sequence of all the processes. Linux processes can have one of four states at any given time: running, waiting or sleeping, stopped and zombie.
 
+--------------------------------------------------------------------------
+
 A process achieves a running state when it is actually executing (running) or waiting for execution in the queue of the scheduler, which means it is ready to run or execute. For this reason, the running state is also known as runnable and is represented by R.
+
+--------------------------------------------------------------------------
 
 A process is in a waiting or sleeping state if it must wait for an event to occur or some resource-specific operation needs to complete before the process can continue to run. Therefore, depending on the circumstances, the waiting state is further subcategorized into an interruptible or S state and an uninterruptible or D state.
 
+--------------------------------------------------------------------------
+
 If the scheduler sends a stop signal to a process, the process goes into a stopped state. This might happen, for example, when the process is being debugged or analyzed and this state is represented by T.
+
+--------------------------------------------------------------------------
 
 When a process has completed its execution, but is waiting to retrieve its exit state, the process is said to be in a zombie state, designated by Z. Once it crosses the zombie state or retrieves its exit status, the process dies or ceases to exist.
 
