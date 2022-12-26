@@ -1,6 +1,6 @@
-# Linux
+# Linux 🐧
 
-## Linux Filesystem
+## Linux File System
 Linux provides a dedicated set of file systems that stores every bit of data required for booting up the Linux systems. The file system holds the collection of data or files stored within the computer's hard disk or storage device.
 
 *Use "man heir" to find more insights on linux files system*
@@ -8,69 +8,69 @@ Linux provides a dedicated set of file systems that stores every bit of data req
 ```
 ls /etc/ 
 ```
-This directory contains all the configuration file of your application.
+- This directory contains all the configuration file of your application.
 if something goes wrong you should be looking in this directory.
 
 ```
 ls /bin
 ```
-This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
+- This directory contains binaries for use by all users and also contains executable files, Linux commands that are used in single user mode, and common commands that are used by all the users, like cat, cp, cd, ls, etc
 
 ```
 ls /sbin
 ```
-This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
+- This directory contains binaries to configure the operating system and executable files. It only contains system binaries which require root privilege to perform certain tasks and are helpful for system maintenance purpose. e.g. fsck, root, init, ifconfig, etc 
 
 ```
 ls /lib
 ```
-This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
+- This directory contains shared libraries which are often used by the ‘/bin’ and ‘/sbin’ directories. It also contains kernel module. These filenames are identable as ld* or lib*.so.*
 
 ```
 ls /opt
 ```
-This directory's main purpose is to store optional application software packages. In many cases this is software from outside the distribution repository. Add-on applications from individual vendors should be installed in ‘/opt’. In some systems ‘/opt’ is empty as they may not have any add-on application.
+- This directory's main purpose is to store optional application software packages. In many cases this is software from outside the distribution repository. Add-on applications from individual vendors should be installed in ‘/opt’. In some systems ‘/opt’ is empty as they may not have any add-on application.
 
 ```
 ls /tmp
 ```
-This directory in Linux based systems contains necessary files that are temporarily required by the system as well as other software and applications running on the machine.
+- This directory in Linux based systems contains necessary files that are temporarily required by the system as well as other software and applications running on the machine.
 
 For example, when you are writing a document, all the content inside that document is saved as a temporary file inside the /tmp directory. After you have saved it, it gets stored in your preferred location, and the temporary file gets removed once you exit the document.
 
 ```
 ls /boot
 ```
-This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
+- This directory contains contains the linux boot configuration files. This is one of the MOST important folder. Removing anything from this directory or a file getting corrupted will result in a OS crash after reboot. You system won't be able to boot without files in the /boot directory.
 
 ```
 ls /dev
 ```
-This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
+- This directory contain files that represent devices that are attached to the local system. However, these are not regular files that a user can read and write to; these files are called devices files or special files.
 *Device files are abstractions of standard devices that applications interact with via I/O system calls.*
 
 ```
 ls /media
 ```
-The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
+- The /media directory contains subdirectories where removable media devices inserted into the computer are mounted. For example, when you insert a CD into your Linux system, a directory will automatically be created inside the /media directory. You can access the contents of the CD inside this directory.
 
 ```
 ls /mnt
 ```
-This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
+- This directory and its subdirectories are intended for use as the temporary mount points for mounting storage devices, such as CDROMs, floppy disks and USB (universal serial bus) key drives. /mnt is a standard subdirectory of the root directory on Linux
 
 ```
 ls /proc
 ```
-This directory is for each processes running on our system. It also contains some configuration files
+- This directory is for each processes running on our system. It also contains some configuration files
 
 ```
 ls /var
 ```
-This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
+- This directory contains variable data files. This includes spool directories and files, administrative and logging data, and transient and temporary files.
 
 
-### There are 7 filetypes in Linix?
+### There are 7 types of files in Linux
 
 - Normal files
 - Directories
