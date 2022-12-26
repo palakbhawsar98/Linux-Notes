@@ -1,5 +1,23 @@
 # Linux 🐧
 
+#### What is Linux?
+-  Linux is a free, open source operating system that enables the communication between computer hardware and software. The Linux OS was developed by Linus Torvalds in 1991. 
+
+#### Why use Linux?
+- Open source
+- community Support
+- Support wide variety of hardware
+- Most servers runs on Linux
+- Secure compare to Windows
+
+#### Linux distributions
+There are many Linux distributions available in the market. It provides a different flavor of the Linux operating system to the users. Popular distros are :
+
+- Ubuntu.
+- Fedora.
+- Debian.
+- Linux Mintand so on.
+
 ## Linux File System
 Linux provides a dedicated set of file systems that stores every bit of data required for booting up the Linux systems. The file system holds the collection of data or files stored within the computer's hard disk or storage device.
 
@@ -100,7 +118,7 @@ systemctl <command> <unitname>
 ```
   
   - ## enable
-  Make sure this usnit always starts at boot.
+  Make sure this unit always starts at boot.
   - ## disable
   Opposite of enable
   - ## start
@@ -418,6 +436,11 @@ tar -zxf doc.tar.gz
 
        
 ### Linux Lifecycle & Processes
+
+- running
+- waiting or sleeping
+- stopped
+- zombie
 
 A process in a computer operating system is an executable program in action. The executable program has machine instructions necessary to carry out a specific task. A corresponding process is born when a program is executed for carrying out a task. A programmer writes a software program using a high-level programming language such as C. This is also called ‘code’ and the programmer compiles it to create an executable program. The compilation process converts the code into a set of machine-level instructions, and it becomes intelligible to the operating system. The compiler for Linux systems is GCC or Gnu C Compiler.
 
