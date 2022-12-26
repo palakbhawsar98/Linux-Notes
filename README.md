@@ -399,6 +399,7 @@ tar -zcvf doc.tar.gz Directory/
 ```
 tar -zxf doc.tar.gz
 ```
+  
 #### Unzips a tar directory HERE (in this location) 
 
 - 'z' shows that it is g zipped
@@ -407,7 +408,8 @@ tar -zxf doc.tar.gz
 
 - 'f' defines the archive filename (in this case: docs.tar.gz)
 
-       ### Linux Lifecycle & Processes
+       
+### Linux Lifecycle & Processes
 
 A process in a computer operating system is an executable program in action. The executable program has machine instructions necessary to carry out a specific task. A corresponding process is born when a program is executed for carrying out a task. A programmer writes a software program using a high-level programming language such as C. This is also called ‘code’ and the programmer compiles it to create an executable program. The compilation process converts the code into a set of machine-level instructions, and it becomes intelligible to the operating system. The compiler for Linux systems is GCC or Gnu C Compiler.
 
