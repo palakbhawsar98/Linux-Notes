@@ -1,6 +1,7 @@
 # Linux
 
 ## Linux Filesystem
+Linux provides a dedicated set of file systems that stores every bit of data required for booting up the Linux systems. The file system holds the collection of data or files stored within the computer's hard disk or storage device.
 
 *Use "man heir" to find more insights on linux files system*
 
@@ -345,34 +346,38 @@ List crontab
 usermod -L user1
 crontab -l
 ```
-Unlock user    
-Edit crontab
-```
+
 To persist aliases, add alias in -
 ```
 vi .bashrc 
 alias ls -la = l
 ```
+  
 List open file
 ```
 lsof
 ```
+  
 Find who opens this file at the moment
 ```
 lsof /var/log/nginx/access.log
 ```
+  
 Find all the files open up by the process
 ```
-ps aux | grep ngins
+ps aux | grep nginx
 ```
+  
 What file user has opened right now
 ```
 lsof -u user_name
 ```
+  
 Which process is listening on what port
 ```
 lsof -i :port_name
 ```
+  
 Which process is listening to tcp protocol
 ```
 lsof -i tcp
@@ -381,6 +386,7 @@ lsof -i tcp
 ## Archiving and Compression in linux
 
 ## Archieve file
+  
 ```
 tar -zcvf doc.tar.gz Directory/
 ```
@@ -395,7 +401,9 @@ tar -zcvf doc.tar.gz Directory/
 
 - 'z' is for zipping (we are using the g zip program), used to compress archive as well as archiving it
 
-## Unarchieve file
+  
+#### Unarchieve file
+  
 ```
 tar -zxf doc.tar.gz
 ```
