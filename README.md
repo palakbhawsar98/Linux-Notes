@@ -108,7 +108,7 @@ ls -lt
 ```
 Sort files based on timestamp in decending order
 ```
-ls -lt
+ls -ltr
 ```
 
 ## Monitoring in Linux
